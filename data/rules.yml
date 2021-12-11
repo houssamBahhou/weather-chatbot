@@ -1,0 +1,52 @@
+version: "3.0"
+
+# only rules included are the ones pointing to greeting and goodbye. Both reset all slots.
+
+rules:
+
+- rule: greet_rule
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: bye_rule
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: who_are_you
+  - action: utter_im_rasa
+
+- rule: active weather form 
+  steps:
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  
+- rule: Give weather Form
+  condition:
+  - active_loop: weather_form
+  steps:
+  - action: weather_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_wx
+
+
+- rule: Interruption in weather form
+  condition:
+  # Condition that form is active.
+  - active_loop: weather_form
+  steps:
+  # This unhappy path handles the case of an intent `who_are_you`.
+  - intent: who_are_you
+  - action: utter_im_rasa
+  # Return to form after handling the `who_are_you` intent
+  - action: weather_form
+  - active_loop: weather_form
+
+
+

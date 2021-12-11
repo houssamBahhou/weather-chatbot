@@ -1,0 +1,306 @@
+version: "3.0"
+
+# user intents with examples
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - Hallo
+    - hi there
+    - greetings
+    - howdy
+    - Hi
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thanks
+    - thank you
+    - cheers
+    - exit
+    - quit
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+# example questions when location is given by the user
+- intent: know_weather
+  examples: |
+    - [Paris](city)
+    - [Bordeaux](city)
+    - [Toulouse](city)
+    - what is the [weather](wx_type) in [Paris](city)?
+    - how's the [UV index](wx_type) in [Toulouse](city)?
+    - Tell me the [weather](wx_type) in [Paris](city)
+    - [weather](wx_type) in [Paris](city)
+    - [weather](wx_type) in [Bordeaux](city)
+    - is it [windy](wx_type) in [Paris](city)
+    - [raining](wx_type) in [Bordeaux](city)
+    - is it [cloudy](wx_type) in [Toulouse](city)
+    - [rain](wx_type) in [Paris](city)
+    - [raining](wx_type) in [Toulouse](city)
+    - [temperature](wx_type) in [Paris](city)
+    - what is the [temperature](wx_type) in [Toulouse](city)
+    - is it going to be [cloudy](wx_type) in [Toulouse](city)
+    - is it going to [UV index](wx_type) in [Bordeaux](city)
+    - what is the [weather](wx_type) for [Bordeaux](city)
+    - what is the [pressure](wx_type) in [Paris](city)
+    - air [pressure](wx_type) in [Paris](city)
+    - what is the [humidity](wx_type) in [Paris](city)
+    - air [humidity](wx_type) in [Paris](city)
+    - [uvi](wx_type) [Paris](city)
+    - [weather](wx_type) [Bordeaux](city)
+    - how about [Bordeaux](city)
+    - [humidity] (wx_type) in [Toulouse](city)
+    - what is the [weather](wx_type) [today](forecast_period)?
+    - how's the [weather](wx_type) [tomorrow](forecast_period)?
+    - Tell me the [weather](wx_type) [today](forecast_period)
+    - [weather](wx_type) [tomorrow](forecast_period)
+    - is it [windy](wx_type) [current](forecast_period)
+    - [raining](wx_type) [today](forecast_period)
+    - is it [cloudy](wx_type) [tomorrow](forecast_period)
+    - [rain](wx_type) [today](forecast_period)
+    - [temperature](wx_type) [tomorrow](forecast_period)
+    - what is the [temperature](wx_type) [tomorrow](forecast_period)
+    - what is the [pressure](wx_type) [tomorrow](forecast_period)
+    - air [pressure](wx_type) [tomorrow](forecast_period)
+    - how is the weather [tomorrow](forecast_period)?
+    - what is the weather  [current](forecast_period)?
+    - what are the [conditions](wx_type) [tomorrow](forecast_period)?
+    - how about [tomorrow](forecast_period)
+    - and [tomorrow](forecast_period)
+    - howabout later [today](forecast_period)
+    - later [today](forecast_period)
+    - what is the [weather](wx_type) [tomorrow](forecast_period) in [Paris](city)?
+    - how's the [weather](wx_type) [now](forecast_period) in [Toulouse](city)?
+    - Tell me the [weather](wx_type) [today](forecast_period) in [Paris](city)
+    - [weather](wx_type) in [Paris](city) [tomorrow](forecast_period)
+    - is it [windy](wx_type) in [Paris](city) [today](forecast_period)
+    - [raining](wx_type) [tomorrow](forecast_period) in [Bordeaux](city)
+    - is it [cloudy](wx_type) in [Toulouse](city) [tomorrow](forecast_period)
+    - [today](forecast_period) [rain](wx_type) in [Paris](city)
+    - [raining](wx_type) in [Toulouse](city) [tomorrow](forecast_period)
+    - [temperature](wx_type) [current](forecast_period) in [Paris](city)
+    - what is the [temperature](wx_type) in [Toulouse](city) [today](forecast_period)
+    - is it going to be [temperature](wx_type) in [Toulouse](city) [today](forecast_period)
+    - [wind](wx_type) in [Toulouse](city) [today](forecast_period)
+    - is it going to [rain](wx_type) in [Bordeaux](city) [tomorrow](forecast_period)
+    - [humid](wx_type) [today](forecast_period) in [Bordeaux](city)
+    - is it [windy](wx_type) [today](forecast_period) in [Paris](city)
+    - is it going to [rain](wx_type) in [Toulouse](city) [tomorrow](forecast_period)
+    - is it going to be [cloudy](wx_type) in [Toulouse](city) [tomorrow](forecast_period)
+    - air [pressure](wx_type) in [Toulouse](city) [current](forecast_period)
+    - [pressure](wx_type) in [Toulouse](city) [today](forecast_period)
+    - what is the [pressure](wx_type) in [Paris](city) [tomorrow](forecast_period)
+    - [humidity](wx_type) in [Toulouse](city) [tomorrow](forecast_period)
+    - [uvi](wx_type) in [Paris](city) [today](forecast_period)
+    - what is the [humidity](wx_type) in [Paris](city) [tomorrow](forecast_period)
+    - [rain](wx_type) [Bordeaux](city) [tomorrow](forecast_period)
+    - [Paris](city) [current](forecast_period)
+    - [Bordeaux](city) [tomorrow](forecast_period)
+    - [weather](wx_type)
+    - [rain](wx_type)
+    - [wind](wx_type)
+    - [pressure](wx_type)
+    - [humidity](wx_type)
+    - how about [wind](wx_type)
+    - [sunny](wx_type)
+    - [rainy](wx_type)
+    - [snow](wx_type)
+    - [sun](wx_type)
+    - [pissing](wx_type)
+    - [shining](wx_type)
+    - is it going to [rain](wx_type)?
+    - is going to be [sunny](wx_type?
+
+- intent: who_are_you
+  examples: |
+    - who are you
+    - are you a bot
+    - what is your name
+    - are you human
+    - what are you
+
+# chitchat
+- intent: how_are_you
+  examples: |
+    - how are you
+    - are you ok
+    - nice to meet, how are you
+    - howdy
+    - hows it hanging
+    - how is it going
+    - hows it going
+
+# questions about what can I do
+- intent: capabilities
+  examples: |
+    - what can you do
+    - what are your capabilities
+    - what are you good at
+    - what are you good for
+    - any instructions
+    - instructions
+    - how do i use this
+    - info
+    - information
+    - help
+    - can you help me
+# if the user want to stop the form     
+- intent: stop
+  examples: |
+    - stop
+    - nevermind
+    - please stop
+    - i want to stop
+    - stop the form
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - /affirm
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    
+# synonym defnitions to limit variations and to help NLU
+- synonym: current
+  examples: |
+    - currently
+    - now
+    - current
+
+- synonym: today
+  examples: |
+    - later
+    - today
+    - later today
+    - going to
+
+
+- synonym: tomorrow
+  examples: |
+    - tomorrow
+
+- synonym: uvi
+  examples: |
+    - uvi
+    - UV
+    - UV index
+
+- synonym: cloud_conditions
+  examples: |
+    - raining
+    - wet
+    - rain
+    - conditions
+    - condition
+    - clouds
+    - snow
+    - snowing
+    - sunny
+    - pissing
+    - hosing
+    - pooring
+    - cloudy
+    - rainy
+    - shining
+    - sun
+    - rainfall
+    - snowfall
+
+- synonym: temperature
+  examples: |
+    - hot
+    - cold
+    - chilly
+    - heat
+    - temp
+    - temperature
+
+- synonym: wind
+  examples: |
+    - windy
+    - breeze
+    - breezy
+    - gust
+    - gusty
+    - gale
+    - wind
+
+- synonym: weather
+  examples: |
+    - weather
+    - wx
+    - forecast
+
+- synonym: humid
+  examples: |
+    - humidity
+    - humid
+
+- synonym: Paris
+  examples: |
+    - Paris
+    - paris
+
+
+- synonym: Bordeaux
+  examples: |
+    - Bordeaux
+    - bordeaux
+
+- synonym: Toulouse
+  examples: |
+    - Toulouse
+    - toulouse

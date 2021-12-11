@@ -1,0 +1,138 @@
+version: "3.0"
+
+
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: weather_1
+  steps:
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - slot_was_set:
+    - city: bordeaux
+  - slot_was_set:
+    - forecast_period: current
+  - active_loop: null
+  - action: action_wx
+
+- story: weather_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - slot_was_set:
+    - forecast_period: today
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: weather_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - slot_was_set:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - slot_was_set:
+    - city: paris
+  - active_loop: null
+  - action: action_wx
+
+- story: weather_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - slot_was_set:
+    - requested_slot: city
+  - intent: who_are_you
+  - action: utter_im_rasa
+  - action: weather_form
+  - slot_was_set:
+    - requested_slot: city
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: utter_okey
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - intent: stop
+  - action: utter_ask_continue
+  - or: 
+    - intent: stop
+    - intent: affirm
+  - action: utter_okey
+  - action: action_deactivate_loop
+  - active_loop: null
+
+# just in case some one asks - who are you
+- story: who_are_you
+  steps:
+  - intent: who_are_you
+  - action: utter_im_rasa
+
+# and what can I do
+- story: capabilities
+  steps:
+  - intent: capabilities
+  - action: utter_capabilities
+
+# should the user be friendly...
+- story: how_are_you
+  steps:
+  - intent: how_are_you
+  - action: utter_im_well
+
